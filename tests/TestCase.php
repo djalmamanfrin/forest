@@ -34,7 +34,8 @@ abstract class TestCase extends BaseTestCase
      * @param $slug
      * @return string
      */
-    public function slug($slug){
+    public function slug($slug)
+    {
         return str_slug($slug);
     }
 }
