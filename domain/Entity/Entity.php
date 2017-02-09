@@ -2,14 +2,14 @@
 
 declare(strict_types = 1);
 
-/**
- * Class Entity
- * @package Domain\Entity\Entity
- */
 namespace Domain\Entity;
 
 use Carbon\Carbon;
 
+/**
+ * Class Entity
+ * @package Domain\Entity\Entity
+ */
 class Entity
 {
     /**
