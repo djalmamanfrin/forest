@@ -2,16 +2,16 @@
 
 declare(strict_types = 1);
 
-/**
- * Class EntityTest
- * @package Tests\Domain\EntityTest
- */
 namespace Tests\Domain\EntityTest;
 
 use Carbon\Carbon;
 use Domain\Entity\Entity;
 use Tests\TestCase;
 
+/**
+ * Class EntityTest
+ * @package Tests\Domain\EntityTest
+ */
 class EntityTest extends TestCase
 {
     /**
