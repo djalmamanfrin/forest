@@ -6,19 +6,20 @@ namespace Test\Domain\Factory\Entity;
 
 use Carbon\Carbon;
 use Domain\Entity\Bear;
-use Domain\Factory\Entity\BearFactory;
+use Domain\Entity\BearPicnic;
+use Domain\Entity\Picnic;
+use Domain\Factory\Entity\BearPicnicFactory;
 use Faker\Factory;
 use Tests\TestCase;
 
 /**
- * Class BearfactoryTest
- * @package Test\Domain\Factory
+ * Class BearPicnicFactoryTest
+ * @package Test\Domain\Factory\Entity
  */
-class BearFactoryTest extends TestCase
-{
-    /**
-     * @var array
-     */
+class BearPicnicFactoryTest extends TestCase
+{/**
+ * @var array
+ */
     private $request;
 
     /**
@@ -29,14 +30,11 @@ class BearFactoryTest extends TestCase
         parent::setUp();
 
         $faker = Factory::create('pt_BR');
-        $name = $faker->name;
 
         $this->request = [
             'id' => $faker->randomDigitNotNull,
-            'name' => $name,
-            'slug' => $this->slug($name),
-            'type' => $faker->colorName,
-            'danger_level' => $faker->randomDigitNotNull,
+            'bear_id' => $faker->randomDigitNotNull,
+            'picnic_id' => $faker->randomDigitNotNull,
             'created_at' => $faker->date('Y-m-d H:i:s'),
             'updated_at' => $faker->date('Y-m-d H:i:s'),
             'deleted_at' => $faker->date('Y-m-d H:i:s')
@@ -48,7 +46,7 @@ class BearFactoryTest extends TestCase
      */
     public function testEntityClassExist()
     {
-        $this->assertInstanceOf(BearFactory::class, new BearFactory());
+        $this->assertInstanceOf(BearPicnicFactory::class, new BearPicnicFactory());
     }
 
     /**
@@ -56,7 +54,7 @@ class BearFactoryTest extends TestCase
      */
     public function testMethodsExist()
     {
-        $object = new BearFactory();
+        $object = new BearPicnicFactory();
 
         $this->assertTrue(method_exists($object, 'createFromArray'));
     }
@@ -66,7 +64,7 @@ class BearFactoryTest extends TestCase
      */
     public function testReturnEntityClass()
     {
-        $this->assertInstanceOf(Bear::class, BearFactory::createFromArray($this->request));
+        $this->assertInstanceOf(BearPicnic::class, BearPicnicFactory::createFromArray($this->request));
     }
 
     /**
@@ -74,13 +72,12 @@ class BearFactoryTest extends TestCase
      */
     public function testReturnOfEntityGetMethods()
     {
-        $entity =  BearFactory::createFromArray($this->request);
+        $entity =  BearPicnicFactory::createFromArray($this->request);
 
         $this->assertEquals($this->request['id'], $entity->getId());
-        $this->assertEquals($this->request['name'], $entity->getName());
-        $this->assertEquals($this->request['slug'], $entity->getSlug());
-        $this->assertEquals($this->request['type'], $entity->getType());
-        $this->assertEquals($this->request['danger_level'], $entity->getDangerLevel());
+
+        $this->assertInstanceOf(Bear::class, $entity->getBear());
+        $this->assertInstanceOf(Picnic::class, $entity->getPicnic());
 
         $this->assertInstanceOf(Carbon::class, $entity->getCreatedAt());
         $this->assertEquals($this->request['created_at'], $entity->getCreatedAt()->toDateTimeString());
