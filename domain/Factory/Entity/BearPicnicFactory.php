@@ -6,31 +6,28 @@ namespace Domain\Factory\Entity;
 
 use Carbon\Carbon;
 use Domain\Entity\Bear;
+use Domain\Entity\BearPicnic;
 
 /**
- * Class BearFactory
- * @package Domain\Factory
+ * Class BearPicnicForest
+ * @package Domain\Factory\Entity
  */
-class BearFactory implements Contract
+class BearPicnicFactory implements Contract
 {
-    public static function createFromArray(array $data): Bear
+    public static function createFromArray(array $data): BearPicnic
     {
-        $entity = new Bear();
+        $entity = new BearPicnic();
 
         if (isset($data['id'])) {
             $entity->setId($data['id']);
         }
 
-        if (isset($data['name'])) {
-            $entity->setName($data['name']);
+        if (isset($data['bear_id'])) {
+            $entity->setBear(BearFactory::createFromId($data['bear_id']));
         }
 
-        if (isset($data['type'])) {
-            $entity->setType($data['type']);
-        }
-
-        if (isset($data['danger_level'])) {
-            $entity->setDangerLevel($data['danger_level']);
+        if (isset($data['picnic_id'])) {
+            $entity->setPicnic(PicnicFactory::createFromId($data['picnic_id']));
         }
 
         if (isset($data['created_at'])) {
@@ -46,10 +43,5 @@ class BearFactory implements Contract
         }
 
         return $entity;
-    }
-
-    public static function createFromId(int $id): Bear
-    {
-        return self::createFromArray([]);
     }
 }

@@ -5,17 +5,17 @@ declare(strict_types = 1);
 namespace Domain\Factory\Entity;
 
 use Carbon\Carbon;
-use Domain\Entity\Bear;
+use Domain\Entity\Picnic;
 
 /**
- * Class BearFactory
- * @package Domain\Factory
+ * Class PicnicFactory
+ * @package Domain\Factory\Entity
  */
-class BearFactory implements Contract
+class PicnicFactory implements Contract
 {
-    public static function createFromArray(array $data): Bear
+    public static function createFromArray(array $data): Picnic
     {
-        $entity = new Bear();
+        $entity = new Picnic();
 
         if (isset($data['id'])) {
             $entity->setId($data['id']);
@@ -25,12 +25,8 @@ class BearFactory implements Contract
             $entity->setName($data['name']);
         }
 
-        if (isset($data['type'])) {
-            $entity->setType($data['type']);
-        }
-
-        if (isset($data['danger_level'])) {
-            $entity->setDangerLevel($data['danger_level']);
+        if (isset($data['taste_level'])) {
+            $entity->setTasteLevel($data['taste_level']);
         }
 
         if (isset($data['created_at'])) {
@@ -48,7 +44,7 @@ class BearFactory implements Contract
         return $entity;
     }
 
-    public static function createFromId(int $id): Bear
+    public static function createFromId(int $id): Picnic
     {
         return self::createFromArray([]);
     }
