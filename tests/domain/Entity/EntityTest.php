@@ -44,6 +44,9 @@ class EntityTest extends TestCase
         $this->assertTrue(method_exists($entity, 'setDeletedAt'));
     }
 
+    /**
+     * Check the set methods return an Entity
+     */
     public function testSetReturnAnEntity()
     {
         $entity = $this->getMockForAbstractClass(Entity::class);
@@ -52,5 +55,7 @@ class EntityTest extends TestCase
         $this->assertInstanceOf(Entity::class, $entity->setCreatedAt(Carbon::now()));
         $this->assertInstanceOf(Entity::class, $entity->setUpdatedAt(Carbon::now()));
         $this->assertInstanceOf(Entity::class, $entity->setDeletedAt(Carbon::now()));
+
+        return $entity;
     }
 }

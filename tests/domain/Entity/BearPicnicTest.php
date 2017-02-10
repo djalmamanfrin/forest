@@ -24,6 +24,15 @@ class BearPicnicTest extends TestCase
     }
 
     /**
+     * Check if entity class has their attribute
+     */
+    public function testEntityHasAttribute()
+    {
+        $this->assertObjectHasAttribute('picnic', new BearPicnic());
+        $this->assertObjectHasAttribute('bear', new BearPicnic());
+    }
+
+    /**
      * Check if methods exist in entity
      */
     public function testMethodsExistsInEntity()

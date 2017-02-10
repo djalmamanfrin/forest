@@ -4,15 +4,16 @@ declare(strict_types = 1);
 
 namespace Test\Domain\Factory;
 
+use Domain\Entity\Bear;
+use Domain\Factory\BearFactory;
 use Faker\Factory;
 use Tests\TestCase;
-use Domain\Factory\BearFactory;
 
 /**
  * Class BearfactoryTest
  * @package Test\Domain\Factory
  */
-class BearfactoryTest extends TestCase
+class BearFactoryTest extends TestCase
 {
     /**
      * @var array
@@ -48,7 +49,7 @@ class BearfactoryTest extends TestCase
     }
 
     /**
-     * Check if methods exists in Domain\Factory\BearFactory
+     * Check if methods exists in Domain\Factory
      */
     public function testMethodsExist()
     {
@@ -56,4 +57,16 @@ class BearfactoryTest extends TestCase
 
         $this->assertTrue(method_exists($object, 'createFromArray'));
     }
+
+    /**
+     * Check if instance is equal in entity class
+     */
+    public function testReturnEntityClass()
+    {
+        $this->assertInstanceOf(Bear::class, BearFactory::createFromArray($this->request));
+    }
+
+    /**
+     *
+     */
 }

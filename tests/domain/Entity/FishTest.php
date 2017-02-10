@@ -23,6 +23,15 @@ class FishTest extends TestCase
     }
 
     /**
+     * Check if entity class has their attribute
+     */
+    public function testEntityHasAttribute()
+    {
+        $this->assertObjectHasAttribute('weight', new Fish());
+        $this->assertObjectHasAttribute('bear', new Fish());
+    }
+
+    /**
      * Check if methods exist in entity
      */
     public function testMethodsExistsInEntity()
