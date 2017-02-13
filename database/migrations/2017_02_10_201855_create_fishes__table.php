@@ -15,8 +15,8 @@ class CreateFishesTable extends Migration
     {
         Schema::create('fishes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('weight');
             $table->integer('bear_id')->unsigned();
+            $table->integer('weight');
             $table->timestamps();
             $table->softDeletes();
 

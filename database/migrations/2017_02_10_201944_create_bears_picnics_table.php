@@ -13,7 +13,14 @@ class CreateBearsPicnicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bears_picnics', function (Blueprint $table) {
+        Schema::create('bear_picnic', function (Blueprint $table) {
+            $table->integer('bear_id')->unsigned();
+            $table->integer('picnic_id')->unsigned();
+            $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign('bear_id')->references('id')->on('bears');
+            $table->foreign('picnic_id')->references('id')->on('picnics');
         });
     }
 
