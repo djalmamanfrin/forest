@@ -1,3 +1,12 @@
+## About the Project
+
+The goal of this project is to apply some concepts of design patterns in a simple example. The concepts are:
+SOLID
+PSR-2 PHP development standard
+PHPUnit – The PHP Testing Framework
+POO
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
