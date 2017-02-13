@@ -10,7 +10,7 @@ use Carbon\Carbon;
  * Class Entity
  * @package Domain\Entity\Entity
  */
-class Entity
+abstract class Entity
 {
     /**
      * @var int

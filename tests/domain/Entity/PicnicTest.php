@@ -22,6 +22,15 @@ class PicnicTest extends TestCase
     }
 
     /**
+     * Check if entity class has their attribute
+     */
+    public function testEntityHasAttribute()
+    {
+        $this->assertObjectHasAttribute('name', new Picnic());
+        $this->assertObjectHasAttribute('taste_level', new Picnic());
+    }
+
+    /**
      * Check if methods exist in entity
      */
     public function testMethodsExistInEntity()
