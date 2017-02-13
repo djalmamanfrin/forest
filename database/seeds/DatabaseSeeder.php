@@ -8,9 +8,13 @@ class DatabaseSeeder extends Seeder
      * Run the database seeds.
      *
      * @return void
+     * @throws \InvalidArgumentException
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call(BearsTableSeeder::class);
+        $this->call(PicnicsTableSeeder::class);
+        $this->call(TreesTableSeeder::class);
+        $this->call(FishesTableSeeder::class);
     }
 }

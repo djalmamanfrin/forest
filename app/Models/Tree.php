@@ -2,19 +2,23 @@
 
 declare(strict_types = 1);
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class Tree
- * @package App
+ * @package App\Models
  */
 class Tree extends Model
 {
-    public function bear(): HasMany
+    /**
+     * One tree belong to one bears
+     * @return BelongsTo
+     */
+    public function bear(): BelongsTo
     {
-        return $this->hasMany(Bear::class);
+        return $this->belongsTo(Bear::class);
     }
 }

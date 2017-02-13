@@ -2,19 +2,25 @@
 
 declare(strict_types = 1);
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class Fish
- * @package App
+ * @package App\Models
  */
 class Fish extends Model
 {
-    public function bear(): HasMany
+    protected $table = 'fishes';
+
+    /**
+     * One fish belong to one bear
+     * @return BelongsTo
+     */
+    public function bear(): BelongsTo
     {
-        return $this->hasMany(Bear::class);
+        return $this->belongsTo(Bear::class);
     }
 }
