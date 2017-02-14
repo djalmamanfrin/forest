@@ -6,36 +6,29 @@ The goal of this project is to apply some concepts of design patterns in a simpl
 - PHPUnit – The PHP Testing Framework
 - POO
 
-The laravel framework will be used. And you can see the exemple <a href="exemple in https://scotch.io/tutorials/a-guide-to-using-eloquent-orm-in-laravel">here</a>
+The laravel framework will be used. And you can see the exemple [here](https://scotch.io/tutorials/a-guide-to-using-eloquent-orm-in-laravel)
 
-## About Laravel
+## About Laravel 5.4
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+*** So far the project uses only - Até o momento, o projeto usa apenas:
+- [Database ORM Eloquent](https://laravel.com/docs/eloquent).
+- [Schema Migrations](https://laravel.com/docs/migrations).
+- [Eloquent: Relationships](https://laravel.com/docs/5.4/eloquent-relationships#inserting-and-updating-related-models)
+- [Database: Seeding](https://laravel.com/docs/5.4/seeding)
+- [Mocking](https://laravel.com/docs/5.4/mocking)
 
 Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
 
-## Learning Laravel
+## About the SOLID
+[English](http://www.codemag.com/article/1001061)
+[Português](http://www.eduardopires.net.br/2013/04/orientacao-a-objeto-solid/)
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+## PSR-2 PHP development standard
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+[English](http://www.php-fig.org/psr/psr-2/).
+[Português](https://www.webdevbr.com.br/padrao-psr-2-de-desenvolvimento-php-ampliando-a-capacidade-de-comunicacao-entre-diferentes-codigos-php/)
 
-## Contributing
+## PHPUnit – The PHP Testing Framework
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+[English and Português](https://phpunit.de/documentation.html).
