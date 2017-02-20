@@ -11,7 +11,6 @@ use Domain\Factory\Entity\FishFactory;
 use Faker\Factory;
 use Tests\TestCase;
 
-
 /**
  * Class FishFactoryTest
  * @package Test\Domain\Factory\Entity
