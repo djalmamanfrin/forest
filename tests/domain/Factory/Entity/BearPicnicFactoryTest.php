@@ -17,9 +17,10 @@ use Tests\TestCase;
  * @package Test\Domain\Factory\Entity
  */
 class BearPicnicFactoryTest extends TestCase
-{/**
- * @var array
- */
+{
+    /**
+     * @var array
+     */
     private $request;
 
     /**
