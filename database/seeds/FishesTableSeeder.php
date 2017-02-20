@@ -14,6 +14,12 @@ class FishesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Fish::class, 10)->create();
+        $bear = Bear::pluck('id');
+
+        factory(Fish::class, 10)->make()
+            ->each(function ($fish) use ($bear) {
+                $fish->bear()->associate($bear->random(1)->first());
+                $fish->save();
+            });
     }
 }

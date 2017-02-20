@@ -14,6 +14,12 @@ class TreesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Tree::class, 10)->create();
+        $bear = Bear::pluck('id');
+
+        factory(Tree::class, 10)->make()
+            ->each(function ($tree) use ($bear) {
+                $tree->bear()->associate($bear->random(1)->first());
+                $tree->save();
+            });
     }
 }

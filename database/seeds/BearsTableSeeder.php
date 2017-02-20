@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Bear;
+use App\Models\Picnic;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class BearsTableSeeder extends Seeder

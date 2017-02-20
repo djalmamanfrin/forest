@@ -15,10 +15,11 @@ class PicnicsTableSeeder extends Seeder
      */
     public function run()
     {
-        $bears = Bear::all();
+        $bears = Bear::pluck('id');
 
         factory(Picnic::class, 10)->make()
             ->each(function ($picnic) use ($bears) {
+                $picnic->save();
                 $picnic->bears()->attach($bears, [
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
