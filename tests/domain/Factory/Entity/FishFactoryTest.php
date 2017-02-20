@@ -31,7 +31,7 @@ class FishFactoryTest extends TestCase
 
         $this->request = [
             'id' => $faker->randomDigitNotNull,
-            'bear_id' => $faker->randomDigitNotNull,
+            'bear' => [],
             'weight' => $faker->randomNumber(3),
             'created_at' => $faker->date('Y-m-d H:i:s'),
             'updated_at' => $faker->date('Y-m-d H:i:s'),

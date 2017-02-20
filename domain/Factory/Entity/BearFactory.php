@@ -47,9 +47,4 @@ class BearFactory implements Contract
 
         return $entity;
     }
-
-    public static function createFromId(int $id): Bear
-    {
-        return self::createFromArray([]);
-    }
 }
