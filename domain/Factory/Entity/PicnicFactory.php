@@ -43,9 +43,4 @@ class PicnicFactory implements Contract
 
         return $entity;
     }
-
-    public static function createFromId(int $id): Picnic
-    {
-        return self::createFromArray([]);
-    }
 }

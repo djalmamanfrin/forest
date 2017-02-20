@@ -29,8 +29,8 @@ class TreeFactory implements Contract
             $entity->setType($data['type']);
         }
 
-        if (isset($data['bear_id'])) {
-            $entity->setBear(BearFactory::createFromId($data['bear_id']));
+        if (isset($data['bear'])) {
+            $entity->setBear(BearFactory::createFromArray($data['bear']));
         }
 
         if (isset($data['created_at'])) {

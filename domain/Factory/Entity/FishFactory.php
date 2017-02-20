@@ -25,8 +25,8 @@ class FishFactory implements Contract
             $entity->setWeight($data['weight']);
         }
 
-        if (isset($data['bear_id'])) {
-            $entity->setBear(BearFactory::createFromId($data['bear_id']));
+        if (isset($data['bear'])) {
+            $entity->setBear(BearFactory::createFromArray($data['bear']));
         }
 
         if (isset($data['created_at'])) {

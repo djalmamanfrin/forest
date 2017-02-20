@@ -22,12 +22,12 @@ class BearPicnicFactory implements Contract
             $entity->setId($data['id']);
         }
 
-        if (isset($data['bear_id'])) {
-            $entity->setBear(BearFactory::createFromId($data['bear_id']));
+        if (isset($data['bear'])) {
+            $entity->setBear(BearFactory::createFromArray($data['bear']));
         }
 
-        if (isset($data['picnic_id'])) {
-            $entity->setPicnic(PicnicFactory::createFromId($data['picnic_id']));
+        if (isset($data['picnic'])) {
+            $entity->setPicnic(PicnicFactory::createFromArray($data['picnic']));
         }
 
         if (isset($data['created_at'])) {
