@@ -43,7 +43,7 @@ interface Contract
      * @param Carbon $updated_at
      * @return self
      */
-    public function setUpdated(Carbon $updated_at);
+    public function setUpdatedAt(Carbon $updated_at);
 
     /**
      * @return Carbon
