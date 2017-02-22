@@ -17,9 +17,10 @@ use Tests\TestCase;
  * @package Test\Domain\Factory\Entity
  */
 class BearPicnicFactoryTest extends TestCase
-{/**
- * @var array
- */
+{
+    /**
+     * @var array
+     */
     private $request;
 
     /**
@@ -33,8 +34,8 @@ class BearPicnicFactoryTest extends TestCase
 
         $this->request = [
             'id' => $faker->randomDigitNotNull,
-            'bear_id' => $faker->randomDigitNotNull,
-            'picnic_id' => $faker->randomDigitNotNull,
+            'bear' => [],
+            'picnic' => [],
             'created_at' => $faker->date('Y-m-d H:i:s'),
             'updated_at' => $faker->date('Y-m-d H:i:s'),
             'deleted_at' => $faker->date('Y-m-d H:i:s')

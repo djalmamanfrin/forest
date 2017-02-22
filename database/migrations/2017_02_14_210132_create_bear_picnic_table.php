@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBearsPicnicsTable extends Migration
+class CreateBearPicnicTable extends Migration
 {
     /**
      * Run the migrations.
@@ -31,6 +31,6 @@ class CreateBearsPicnicsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bears_picnics');
+        Schema::dropIfExists('bear_picnic');
     }
 }

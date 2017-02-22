@@ -39,10 +39,7 @@ $factory->define(App\Models\Bear::class, function (Faker\Generator $faker) {
  */
 $factory->define(App\Models\Fish::class, function (Faker\Generator $faker) {
     return [
-        'weight' => $faker->randomDigitNotNull,
-        'bear_id' => function () {
-            return factory(Bear::class)->create()->id;
-        }
+        'weight' => $faker->randomDigitNotNull
     ];
 });
 
@@ -58,10 +55,7 @@ $factory->define(App\Models\Tree::class, function (Faker\Generator $faker) {
             'Type Four',
             'Type Five'
         ]),
-        'age' => $faker->randomDigitNotNull,
-        'bear_id' => function () {
-            return factory(Bear::class)->create()->id;
-        }
+        'age' => $faker->randomDigitNotNull
     ];
 });
 

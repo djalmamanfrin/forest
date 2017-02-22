@@ -33,7 +33,7 @@ class TreeFactoryTest extends TestCase
 
         $this->request = [
             'id' => $faker->randomDigitNotNull,
-            'bear_id' => $faker->randomDigitNotNull,
+            'bear' => [],
             'age' => $faker->randomDigitNotNull,
             'type' => $faker->colorName,
             'created_at' => $faker->date('Y-m-d H:i:s'),

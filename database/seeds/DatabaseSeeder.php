@@ -13,8 +13,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(BearsTableSeeder::class);
-        $this->call(PicnicsTableSeeder::class);
         $this->call(TreesTableSeeder::class);
         $this->call(FishesTableSeeder::class);
+        $this->call(PicnicsTableSeeder::class);
     }
 }
