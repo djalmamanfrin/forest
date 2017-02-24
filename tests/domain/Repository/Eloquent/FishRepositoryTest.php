@@ -4,32 +4,32 @@ declare(strict_types = 1);
 
 namespace Test\Domain\Repository\Eloquent;
 
-use Artisan;
-use App\Models\Tree;
+use App\Models\Fish;
 use BearsTableSeeder;
+use Domain\Entity\Fish as FishEntity;
+use Artisan;
 use Domain\Entity\Bear;
-use Domain\Entity\Tree as TreeEntity;
-use Domain\Factory\Entity\TreeFactory;
-use Domain\Repository\Eloquent\TreeRepository;
+use Domain\Factory\Entity\FishFactory;
+use Domain\Repository\Eloquent\FishRepository;
 use Faker\Factory;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 
 /**
- * Class TreeRepositoryTest
+ * Class FishRepositoryTest
  * @package Test\Domain\Repository\Eloquent
  */
-class TreeRepositoryTest extends TestCase
+class FishRepositoryTest extends TestCase
 {
     use DatabaseMigrations;
 
     /**
-     * @var Tree
+     * @var Fish
      */
     private $model;
 
     /**
-     * @var TreeEntity
+     * @var FishEntity
      */
     private $entity;
 
@@ -45,20 +45,13 @@ class TreeRepositoryTest extends TestCase
     {
         parent::setUp();
 
-        $this->model = $this->app->make(Tree::class);
-        $this->entity = new TreeEntity();
+        $this->model = $this->app->make(Fish::class);
+        $this->entity = new FishEntity();
         $faker =  Factory::create('pt_BR');
 
         $this->request = [
             'id' => $faker->randomDigitNotNull,
-            'type' => $faker->randomElement([
-                'Type One',
-                'Type Two',
-                'Type Three',
-                'Type Four',
-                'Type Five'
-            ]),
-            'age' => $faker->randomDigitNotNull
+            'weight' => $faker->randomDigitNotNull
         ];
     }
 
@@ -69,21 +62,19 @@ class TreeRepositoryTest extends TestCase
     {
         Artisan::call('db:seed');
 
-        $repository = new TreeRepository($this->model);
+        $repository = new FishRepository($this->model);
         $bear = $this->getBearRandom();
-        $entity = TreeFactory::createFromArray($repository->find(1, ['bear'])->toArray());
+        $entity = FishFactory::createFromArray($repository->find(1, ['bear'])->toArray());
 
-        $entity->setType($this->request['type']);
-        $entity->setAge($this->request['age']);
+        $entity->setWeight($this->request['weight']);;
         $entity->setBear($bear);
 
         $this->assertTrue($repository->update($entity));
 
-        $entity = TreeFactory::createFromArray($repository->find(1, ['bear'])->toArray());
+        $entity = FishFactory::createFromArray($repository->find(1, ['bear'])->toArray());
 
         $this->assertEquals(1, $entity->getId());
-        $this->assertEquals($this->request['type'], $entity->getType());
-        $this->assertEquals($this->request['age'], $entity->getAge());
+        $this->assertEquals($this->request['weight'], $entity->getWeight());
 
         $this->assertInstanceOf(Bear::class, $entity->getBear());
         $this->assertEquals($bear->getId(), $entity->getBear()->getId());
@@ -98,11 +89,10 @@ class TreeRepositoryTest extends TestCase
             '--class' => BearsTableSeeder::class
         ]);
 
-        $repository = new TreeRepository($this->model);
+        $repository = new FishRepository($this->model);
         $bear = $this->getBearRandom();
 
-        $this->entity->setType($this->request['type']);
-        $this->entity->setAge($this->request['age']);
+        $this->entity->setWeight($this->request['weight']);
         $this->entity->setBear($bear);
 
         $this->assertTrue($repository->create($this->entity));

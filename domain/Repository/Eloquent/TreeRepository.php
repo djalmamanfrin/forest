@@ -35,12 +35,12 @@ class TreeRepository extends  Repository
     {
         $this->model->type = $entity->getType();
         $this->model->age = $entity->getAge();
-        $this->model->bear = $entity->getBear()->getId();
+        $this->model->bear_id = $entity->getBear()->getId();
 
         if ($save = $this->model->save()) {
             $entity->setId($this->model->id);
             $entity->setCreatedAt($this->model->created_at);
-            $entity->setUpdated($this->model->updated_at);
+            $entity->setUpdatedAt($this->model->updated_at);
         }
 
         return $save;
@@ -49,14 +49,14 @@ class TreeRepository extends  Repository
 
     public function update(Entity $entity): bool
     {
-        $model = $this->find($this->getId());
+        $model = $this->find($entity->getId());
 
         $model->type = $entity->getType();
         $model->age = $entity->getAge();
         $model->bear_id = $entity->getBear()->getId();
 
         if ($update = $model->save()) {
-            $entity->setUpdated($model->updated_at);
+            $entity->setUpdatedAt($model->updated_at);
         }
 
         return $update;

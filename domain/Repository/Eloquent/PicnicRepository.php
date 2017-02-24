@@ -35,7 +35,7 @@ class PicnicRepository extends Repository
         if ($save = $this->model->save()) {
             $entity->setId($this->model->id);
             $entity->setCreatedAt($this->model->created_at);
-            $entity->setUpdated($this->model->updated_at);
+            $entity->setUpdatedAt($this->model->updated_at);
         }
 
         return $save;
@@ -43,13 +43,13 @@ class PicnicRepository extends Repository
 
     public function update(Entity $entity): bool
     {
-        $model = $this->find($this->getId());
+        $model = $this->find($entity->getId());
 
         $model->name = $entity->getName();
         $model->taste_level = $entity->getTasteLevel();
 
         if ($update = $model->save()) {
-            $entity->setUpdated($model->updated_at);
+            $entity->setUpdatedAt($model->updated_at);
         }
 
         return $update;
