@@ -51,13 +51,13 @@ class FishRepository extends Repository
      */
     public function update(Entity $entity): bool
     {
-        $model = $this->find($this->getId());
+        $model = $this->find($entity->getId());
 
         $model->weight = $entity->getWeight();
         $model->bear_id = $entity->getBear()->getId();
 
         if ($update = $model->save()) {
-            $entity->setUpdated($model->updated_at);
+            $entity->setUpdatedAt($model->updated_at);
         }
 
         return $update;
