@@ -30,4 +30,10 @@ interface Searchable
      * @return mixed
      */
     public function findBy(string $field, $value, array $with = []);
+
+    /**
+     * @param int $per_page
+     * @return mixed
+     */
+    public function paginate(int $per_page = 15);
 }

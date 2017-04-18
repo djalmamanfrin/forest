@@ -9,6 +9,7 @@ use Domain\Exception\NotFoundRegisterException;
 use Domain\Repository\RepositoryBase;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 /**
  * Class Repository
@@ -61,6 +62,15 @@ abstract class Repository extends RepositoryBase
     }
 
     /**
+     * @param int $per_page
+     * @return LengthAwarePaginator
+     */
+    public function paginate(int $per_page = 15): LengthAwarePaginator
+    {
+        return $this->model->with($this->getWith())->paginate($per_page);
+    }
+
+    /**
      * @param Entity $entity
      * @return bool
      */
@@ -69,5 +79,13 @@ abstract class Repository extends RepositoryBase
         $model = $this->find($entity->getId());
 
         return $model->delete();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getModel()
+    {
+        return $this->model;
     }
 }
