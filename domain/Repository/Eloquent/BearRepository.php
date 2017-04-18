@@ -47,6 +47,10 @@ class BearRepository extends Repository
         return $save;
     }
 
+    /**
+     * @param Entity $entity
+     * @return bool
+     */
     public function update(Entity $entity): bool
     {
         $model = $this->find($entity->getId());

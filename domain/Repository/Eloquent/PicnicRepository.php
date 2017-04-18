@@ -27,6 +27,10 @@ class PicnicRepository extends Repository
         $this->model = $model;
     }
 
+    /**
+     * @param Entity $entity
+     * @return bool
+     */
     public function create(Entity $entity): bool
     {
         $this->model->name = $entity->getName();
@@ -41,6 +45,10 @@ class PicnicRepository extends Repository
         return $save;
     }
 
+    /**
+     * @param Entity $entity
+     * @return bool
+     */
     public function update(Entity $entity): bool
     {
         $model = $this->find($entity->getId());
