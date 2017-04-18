@@ -23,6 +23,16 @@ class TreeTest extends TestCase
     }
 
     /**
+     * Check if entity class has their attribute
+     */
+    public function testEntityHasAttribute()
+    {
+        $this->assertObjectHasAttribute('type', new Tree());
+        $this->assertObjectHasAttribute('age', new Tree());
+        $this->assertObjectHasAttribute('bear', new Tree());
+    }
+
+    /**
      * Check if methods exist in entity
      */
     public function testMethodsExistsInEntity()

@@ -4,6 +4,8 @@ declare(strict_types = 1);
 
 namespace Tests;
 
+use App\Models\Bear;
+use Domain\Factory\Entity\BearFactory;
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
@@ -23,7 +25,7 @@ abstract class TestCase extends BaseTestCase
      */
     public function createApplication()
     {
-        $app = require __DIR__.'/../bootstrap/app.php';
+        $app = require __DIR__ . '/../bootstrap/app.php';
 
         $app->make(Kernel::class)->bootstrap();
 
@@ -37,5 +39,14 @@ abstract class TestCase extends BaseTestCase
     public function slug($slug)
     {
         return str_slug($slug);
+    }
+
+    /**
+     * @return \Domain\Entity\Bear
+     */
+    protected function getBearRandom()
+    {
+        $bear = Bear::all();
+        return BearFactory::createFromArray($bear->random(1)->first()->toArray());
     }
 }

@@ -8,4 +8,6 @@ Homestead.yaml
 Homestead.json
 .env
 .phpstorm.meta.php
+forest.sublime-project
+forest.sublime-workspace
 

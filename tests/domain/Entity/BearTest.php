@@ -22,6 +22,17 @@ class BearTest extends TestCase
     }
 
     /**
+     * Check if entity class has their attribute
+     */
+    public function testEntityHasAttribute()
+    {
+        $this->assertObjectHasAttribute('name', new Bear());
+        $this->assertObjectHasAttribute('slug', new Bear());
+        $this->assertObjectHasAttribute('type', new Bear());
+        $this->assertObjectHasAttribute('danger_level', new Bear());
+    }
+
+    /**
      * Check if methods exist in entity
      */
     public function testMethodsExistsInEntity()
@@ -53,6 +64,18 @@ class BearTest extends TestCase
         $this->assertInstanceOf(Bear::class, $object->setDangerLevel(1));
 
         return $object;
+    }
+
+    /**
+     * Check value in set methods
+     * @param Bear $object
+     * @depends testSetMethodsAreFluent
+     */
+    public function testAttributesSetMethods(Bear $object)
+    {
+        $this->assertAttributeEquals('Bear Name', 'name', $object);
+        $this->assertAttributeEquals('Bear Type', 'type', $object);
+        $this->assertAttributeEquals(1, 'danger_level', $object);
     }
 
     /**
